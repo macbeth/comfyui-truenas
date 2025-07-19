@@ -1,7 +1,7 @@
 # comfyui-truenas
 Docker image for Truenas of ComfyUI
 
-ComfyUI Truenas Docker
+## ComfyUI Truenas Docker
 
 Minimal Docker image of ComfyUI for Truenas, based on Nvidia official base cuda images.
 
@@ -24,6 +24,7 @@ Ubuntu 22.04
 
 Truenas 25.04.1 include Nvidia Drivers 550.142.
 So we are probably limited to CUDA 12.4
+
 `
 +-----------------------------------------------------------------------------------------+
 | NVIDIA-SMI 550.142                Driver Version: 550.142        CUDA Version: 12.4     |
