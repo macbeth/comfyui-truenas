@@ -1,5 +1,5 @@
 # comfyui-truenas
-Docker image for Truenas of ComfyUI
+Docker image for Truenas of ComfyUI.
 
 ## Install 
 
@@ -70,7 +70,7 @@ So we are probably limited to CUDA 12.4
 +-----------------------------------------+------------------------+----------------------+
 ```
 
-Based on the work of 
+## Based on the work of 
 
 https://www.johnaldred.com/running-comfyui-in-docker-on-windows-or-linux/
 his repository https://github.com/Kaouthia/ComfyUI-Docker/tree/main
