@@ -3,6 +3,12 @@ Docker image for Truenas of ComfyUI.
 
 ## Install 
 
+use 
+
+tommasopiantanida/comfyui-truenas:latest
+
+for last stable version working with current Truenas version
+
 composer file something like:
 
 ```
@@ -32,26 +38,31 @@ services:
       - /hostpath/output:/app/ComfyUI/output
 ```
 
-## ComfyUI Truenas Docker
-
-Minimal Docker image of ComfyUI for Truenas, based on Nvidia official base cuda images.
-
-use 
-
-docker pull tommasopiantanida/comfyui-truenas:latest
-
-for last stable version working with current Truenas version
-
-docker pull tommasopiantanida/comfyui-truenas:truenasxx.xx
-
-to pull a version for a specific version (at the moment not available working on it).
-
 Latest is currently pointing at:
 
 Truenas 25.04.1
 CUDA 12.4
 Ubuntu 22.04
 
+Next release will probably use the version of cuda , so if you are not running the latest version of Truenas, run the command:
+
+```
+nvidia-smi
+```
+and pull the version tagged with the proper cuda version like:
+
+tommasopiantanida/comfyui-truenas:cuda12.4
+
+## ComfyUI Truenas Docker
+
+Minimal Docker image of ComfyUI for Truenas, based on Nvidia official base cuda images.
+
+To pull a version for a specific version:
+
+```
+tommasopiantanida/comfyui-truenas:cudaxx.xx
+```
+Where xx.xx is the cuda versione you want for your Truenas Installation (at the moment not available working on it).
 
 Truenas 25.04.1 include Nvidia Drivers 550.142.
 So we are probably limited to CUDA 12.4
