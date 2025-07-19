@@ -1,6 +1,37 @@
 # comfyui-truenas
 Docker image for Truenas of ComfyUI
 
+##Install 
+
+composer file something like:
+
+```
+name: comfyui
+services:
+  comfyui:
+    container_name: comfyui-truenas
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities:
+                - gpu
+              count: all
+              driver: nvidia
+    environment:
+      - UID=1000
+      - GID=1000
+      - TZ=Europe/Rome
+    image: tommasopiantanida/comfyui-truenas:latest
+    ports:
+      - '8188:8188'
+    privileged: True
+    volumes:
+      - /hostpath/models:/app/ComfyUI/models
+      - /hostpath/input:/app/ComfyUI/input
+      - /hostpath/output:/app/ComfyUI/output
+```
+
 ## ComfyUI Truenas Docker
 
 Minimal Docker image of ComfyUI for Truenas, based on Nvidia official base cuda images.
