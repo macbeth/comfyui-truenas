@@ -4,7 +4,7 @@ Docker image for Truenas of ComfyUI
 
 ComfyUI Truenas Docker
 
-Minimal Docker image of ComfyUI for Truenas, based on nvidia/cuda:12.1.1-base-ubuntu22.04
+Minimal Docker image of ComfyUI for Truenas, based on Nvidia official base cuda images.
 
 use 
 
