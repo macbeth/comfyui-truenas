@@ -1,9 +1,7 @@
 # comfyui-truenas
 Docker image of ComfyUI for Truenas, based on Nvidia official base cuda images.
 
-To pull a version for a specific version:
 
-Docker image for Truenas of ComfyUI.
 
 ## Install 
 
@@ -41,6 +39,9 @@ services:
       - /hostpath/input:/app/ComfyUI/input
       - /hostpath/output:/app/ComfyUI/output
 ```
+
+After the launch of the container you can access ComfyUI at the ip address of truenas: http://truenas:8188
+
 ## ENVIRONMENT VARIABLES
 
 | ENV               | Default | Description |
