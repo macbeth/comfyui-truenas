@@ -37,12 +37,13 @@ services:
     ports:
       - '8188:8188'
     privileged: True
+
     volumes:
       - /hostpath/models:/app/ComfyUI/models
-      - /app/ComfyUI/custom_nodes
+      - /hostpath/custom_nodes:/app/ComfyUI/custom_nodes
       - /hostpath/input:/app/ComfyUI/input
       - /hostpath/output:/app/ComfyUI/output
-      - /app/ComfyUI/user 
+      - /hostpath/user:/app/ComfyUI/user 
 ```
 
 After the launch of the container you can access ComfyUI at the ip address of truenas: http://truenas:8188
