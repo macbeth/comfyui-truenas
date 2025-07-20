@@ -39,7 +39,6 @@ services:
     privileged: True
 
     volumes:
-      - /hostpath/.venv:/app/ComfyUI/.venv
       - /hostpath/models:/app/ComfyUI/models
       - /hostpath/custom_nodes:/app/ComfyUI/custom_nodes
       - /hostpath/input:/app/ComfyUI/input
