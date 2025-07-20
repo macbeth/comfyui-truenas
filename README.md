@@ -35,7 +35,7 @@ services:
       - PORT=8018
     image: tommasopiantanida/comfyui-truenas:latest
     ports:
-      - '8188:8188'
+      - '8018:8018'
     privileged: True
 
     volumes:
