@@ -1,5 +1,5 @@
 # comfyui-truenas
-Minimal Docker image of ComfyUI for Truenas, based on Nvidia official base cuda images.
+Docker image of ComfyUI for Truenas, based on Nvidia official base cuda images.
 
 To pull a version for a specific version:
 
