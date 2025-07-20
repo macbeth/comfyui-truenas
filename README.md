@@ -37,6 +37,16 @@ services:
       - /hostpath/input:/app/ComfyUI/input
       - /hostpath/output:/app/ComfyUI/output
 ```
+## ENVIRONMENT VARIABLES
+
+| ENV               | Default | Description |
+| :---------------- |  ------:|:--------------------|
+| UID               |   1000  | User Id             |
+| GUID              |   1000  | Group Id of User Id |
+| port              |   8018  | Port of the web GUI of ComfyUI |
+
+
+## Identify the right image for you:
 
 Latest is currently pointing at:
 
