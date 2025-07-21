@@ -1,11 +1,14 @@
 # Start your image with a node base image
 # FROM nvidia/cuda:12.1.1-base-ubuntu22.04
-FROM nvidia/cuda:12.4.0-base-ubuntu22.04
 # FROM nvidia/cuda:12.6.3-base-ubuntu24.04
+FROM nvidia/cuda:12.4.0-base-ubuntu22.04
 
 # Allow passing in your host UID/GID (defaults 1000:1000)
 ARG UID=1000
 ARG GID=1000
+#webgui service port
+ARG PORT=8018
+
 
 ##### Base
 # Install system packages
@@ -24,7 +27,7 @@ ENV LANG=en_US.utf8
 ENV LC_ALL=C	
 	
 # Install needed packages
-RUN apt-get update -y --fix-missing \
+RUN apt-get update -y  --fix-missing \
   && apt-get upgrade -y \
   && apt-get install -y \
     build-essential \
@@ -48,7 +51,7 @@ RUN apt-get update -y --fix-missing \
 
 # Add libEGL ICD loaders and libraries + Vulkan ICD loaders and libraries
 # Per https://github.com/mmartial/ComfyUI-Nvidia-Docker/issues/26
-RUN apt install -y libglvnd0 libglvnd-dev libegl1-mesa-dev libvulkan1 libvulkan-dev ffmpeg \
+RUN apt install -y libglvnd0 libglvnd-dev libegl1-mesa-dev libvulkan1 libvulkan-dev ffmpeg libgl1-mesa-glx libglib2.0-0 \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
   && mkdir -p /usr/share/glvnd/egl_vendor.d \
@@ -65,9 +68,9 @@ ENV MESA_D3D12_DEFAULT_ADAPTER_NAME="NVIDIA"
 # && useradd --uid ${UID} --gid ${GID} --create-home --shell /bin/bash appuser \
 # && rm -rf /var/lib/apt/lists/*
  
-#RUN groupadd --gid ${GID} appuser ; exit 0
-#RUN useradd --uid ${UID} --gid ${GID} --create-home --shell /bin/bash appuser ; exit 0
-RUN  rm -rf /var/lib/apt/lists/*
+RUN groupadd --gid ${GID} appuser
+RUN useradd --uid ${UID} --gid ${GID} --create-home --shell /bin/bash appuser
+RUN rm -rf /var/lib/apt/lists/*
 
 # Install Mesa/GL and GLib so OpenCV can load libGL.so.1 for ComfyUI-VideoHelperSuite
 # Install python3-pip
@@ -99,12 +102,15 @@ RUN git clone https://github.com/comfyanonymous/ComfyUI.git
 # Change directory to the ComfyUI folder
 WORKDIR /app/ComfyUI
 
-# create venv
+# create python venv
 RUN python3 -m venv .venv --prompt "ComfyUI"
+# add it to path
 ENV PATH="/app/ComfyUI/.venv/bin:$PATH"
 
+VOLUME /app/ComfyUI/.venv
+
 # install torch
-RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu121
+# RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu121
 # install requirements
 
 # Install ComfyUI dependencies
@@ -114,8 +120,9 @@ RUN pip install  --no-cache-dir -r requirements.txt
 RUN pip cache purge
 
 # Expose the port that ComfyUI will use (change if needed)
-EXPOSE 8188
+EXPOSE $PORT
 
 # Run entrypoint first, then start ComfyUI
+# Install the default packages (we only want ComfyUI Manager to keep the images small).
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["python","/app/ComfyUI/main.py","--listen","0.0.0.0"]
+CMD ["python","/app/ComfyUI/main.py","--listen","0.0.0.0","--port", ${PORT}]
