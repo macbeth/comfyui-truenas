@@ -32,10 +32,10 @@ services:
     environment:
       - UID=1000
       - GID=1000
-      - PORT=8018
+      - PORT=8188
     image: tommasopiantanida/comfyui-truenas:latest
     ports:
-      - '8018:8018'
+      - '8188:8188'
     privileged: True
     volumes:
       - source: comfy-pythonenv
