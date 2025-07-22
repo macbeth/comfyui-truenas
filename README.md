@@ -37,16 +37,20 @@ services:
     ports:
       - '8018:8018'
     privileged: True
-
     volumes:
+      - source: comfy-pythonenv
+        target: /app/ComfyUI/.venv
+        type: volume
+        volume:
+          nocopy: False
+
       - /hostpath/models:/app/ComfyUI/models
       - /hostpath/custom_nodes:/app/ComfyUI/custom_nodes
       - /hostpath/input:/app/ComfyUI/input
       - /hostpath/output:/app/ComfyUI/output
       - /hostpath/user:/app/ComfyUI/user 
 ```
-
-
+The environment of python is stored in a volume.
 
 After the launch of the container you can access ComfyUI at the ip address of truenas: http://truenas:8188
 
