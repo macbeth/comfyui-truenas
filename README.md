@@ -75,7 +75,8 @@ To have persistence you can bind the following folders:
 | /app/ComfyUI/input	      | Input for Comfyui (reference images etc)            |
 | /app/ComfyUI/user         | Settings and worflow                                |
 
-
+The image create also a volume for python env. 
+If the container stop to work destroy and recreate the container.
 
 ## Identify the right image for you:
 
