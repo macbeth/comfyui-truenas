@@ -1,10 +1,14 @@
-FROM nvidia/cuda:12.4.0-base-ubuntu22.04
-
 # Allow passing in your host UID/GID (defaults 1000:1000)
 ARG UID=1000
 ARG GID=1000
-# Webgui service port
+#webgui service port
 ARG PORT=8188
+
+# Start your image with a node base image
+# FROM nvidia/cuda:12.1.1-base-ubuntu22.04
+# FROM nvidia/cuda:12.6.3-base-ubuntu24.04
+FROM nvidia/cuda:12.4.0-base-ubuntu22.04
+
 
 ##### Base
 # Install system packages
@@ -64,6 +68,10 @@ ENV MESA_D3D12_DEFAULT_ADAPTER_NAME="NVIDIA"
 # && useradd --uid ${UID} --gid ${GID} --create-home --shell /bin/bash appuser \
 # && rm -rf /var/lib/apt/lists/*
 
+ARG UID
+ARG GID
+ARG PORT
+
 RUN groupadd --gid ${GID} appuser
 RUN useradd --uid ${UID} --gid ${GID} --create-home --shell /bin/bash appuser
 RUN rm -rf /var/lib/apt/lists/*
@@ -103,8 +111,6 @@ RUN python3 -m venv .venv --prompt "ComfyUI"
 # add it to path
 ENV PATH="/app/ComfyUI/.venv/bin:$PATH"
 
-#VOLUME /app/ComfyUI/.venv
-
 # install torch
 # RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu121
 # install requirements
@@ -122,4 +128,5 @@ EXPOSE $PORT
 # Install the default packages (we only want ComfyUI Manager to keep the images small).
 ENTRYPOINT ["/entrypoint.sh"]
 
+ARG PORT
 CMD ["python","/app/ComfyUI/main.py","--listen","0.0.0.0","--port", ${PORT}]
