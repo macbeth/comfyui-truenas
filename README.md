@@ -44,7 +44,7 @@ services:
        target: /app/ComfyUI/.venv
        type: volume
        volume:
-       nocopy: False
+         nocopy: False
      - /hostpath/models:/app/ComfyUI/models
      - /hostpath/custom_nodes:/app/ComfyUI/custom_nodes
      - /hostpath/input:/app/ComfyUI/input
