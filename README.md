@@ -35,22 +35,23 @@ services:
       - UID=1000
       - GID=1000
       - PORT=8188
-    image: tommasopiantanida/comfyui-truenas:latest
+    image: tommasopiantanida/comfyui-truenas:test
     ports:
       - '8188:8188'
     privileged: True
     volumes:
-      - source: comfy-pythonenv
-        target: /app/ComfyUI/.venv
-        type: volume
-        volume:
-          nocopy: False
-
-      - /hostpath/models:/app/ComfyUI/models
-      - /hostpath/custom_nodes:/app/ComfyUI/custom_nodes
-      - /hostpath/input:/app/ComfyUI/input
-      - /hostpath/output:/app/ComfyUI/output
-      - /hostpath/user:/app/ComfyUI/user 
+     - source: comfy-pythonenv
+       target: /app/ComfyUI/.venv
+       type: volume
+       volume:
+       nocopy: False
+     - /hostpath/models:/app/ComfyUI/models
+     - /hostpath/custom_nodes:/app/ComfyUI/custom_nodes
+     - /hostpath/input:/app/ComfyUI/input
+     - /hostpath/output:/app/ComfyUI/output
+     - /hostpath/user:/app/ComfyUI/user
+volumes:
+  comfy-pythonenv: Null
 ```
 The environment of python is stored in a volume.
 
