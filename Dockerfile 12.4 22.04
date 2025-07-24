@@ -3,12 +3,13 @@ ARG UID=1000
 ARG GID=1000
 #webgui service port
 ARG PORT=8188
-
 # Start your image with a node base image
 # FROM nvidia/cuda:12.1.1-base-ubuntu22.04
 # FROM nvidia/cuda:12.6.3-base-ubuntu24.04
 FROM nvidia/cuda:12.4.0-base-ubuntu22.04
 
+ARG PORT
+ENV docker_PORT=$PORT
 
 ##### Base
 # Install system packages
@@ -20,6 +21,9 @@ RUN apt-get update -y --fix-missing\
     ca-certificates \
     && apt-get upgrade -y \
     && apt-get clean
+
+ARG PORT
+
 
 # UTF-8
 RUN localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
@@ -47,6 +51,8 @@ RUN apt-get update -y  --fix-missing \
     libglib2.0-0 \
     socat \
   && apt-get clean
+
+ARG PORT
 
 
 # Add libEGL ICD loaders and libraries + Vulkan ICD loaders and libraries
@@ -88,25 +94,32 @@ RUN rm -rf /var/lib/apt/lists/*
 # && rm -rf /var/lib/apt/lists/*
 
 # Copy and enable the startup script
+ARG PORT
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 # Switch to non-root user
+ARG PORT
 USER $UID:$GID
 
 # make ~/.local/bin available on the PATH so scripts like tqdm, torchrun, etc. are found
+ARG PORT
 ENV PATH=/home/appuser/.local/bin:$PATH
 
 # Set the working directory
+ARG PORT
 WORKDIR /app
 
 # Clone the ComfyUI repository (replace URL with the official repo)
+ARG PORT
 RUN git clone https://github.com/comfyanonymous/ComfyUI.git
 
 # Change directory to the ComfyUI folder
+ARG PORT
 WORKDIR /app/ComfyUI
 
 # create python venv
+ARG PORT
 RUN python3 -m venv .venv --prompt "ComfyUI"
 # add it to path
 ENV PATH="/app/ComfyUI/.venv/bin:$PATH"
@@ -116,11 +129,13 @@ ENV PATH="/app/ComfyUI/.venv/bin:$PATH"
 # install requirements
 
 # Install ComfyUI dependencies
+ARG PORT
 RUN pip install  --no-cache-dir -r requirements.txt
 
 # (Optional) Clean up pip cache to reduce image size
 RUN pip cache purge
 
+ARG PORT
 # Expose the port that ComfyUI will use (change if needed)
 EXPOSE $PORT
 
@@ -129,4 +144,4 @@ EXPOSE $PORT
 ENTRYPOINT ["/entrypoint.sh"]
 
 ARG PORT
-CMD ["python","/app/ComfyUI/main.py","--listen","0.0.0.0","--port", ${PORT}]
+CMD "python /app/ComfyUI/main.py --listen 0.0.0.0 --port ${docker_PORT}"
