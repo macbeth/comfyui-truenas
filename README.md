@@ -1,7 +1,10 @@
 # comfyui-truenas
-Docker image of ComfyUI for Truenas, based on nVidia official base cuda images.
+Minimal Docker image of ComfyUI for Truenas, based on nVidia official base cuda images with:
 
-## last update 24 07 2025
+  ["ComfyUI-Manager"]="https://github.com/ltdrdata/ComfyUI-Manager.git"
+  ["ComfyUI-Crystools"]="https://github.com/crystian/ComfyUI-Crystools.git"
+
+## last update 25 07 2025
 
 ## GPU Support
 Only nVidia cards that support CUDA 12.4.
@@ -40,18 +43,12 @@ services:
       - '8188:8188'
     privileged: True
     volumes:
-     - source: comfy-pythonenv
-       target: /app/ComfyUI/.venv
-       type: volume
-       volume:
-         nocopy: False
      - /hostpath/models:/app/ComfyUI/models
      - /hostpath/custom_nodes:/app/ComfyUI/custom_nodes
      - /hostpath/input:/app/ComfyUI/input
      - /hostpath/output:/app/ComfyUI/output
      - /hostpath/user:/app/ComfyUI/user
-volumes:
-  comfy-pythonenv: Null
+
 ```
 The environment of python is stored in a volume.
 
@@ -59,11 +56,19 @@ After the launch of the container you can access ComfyUI at the ip address of tr
 
 ## ENVIRONMENT VARIABLES
 
-| ENV               | Default | Description                    |
-| :---------------- |  ------:|:--------------------           |
-| UID               |   1000  | User Id                        |
-| GUID              |   1000  | Group Id of User Id            |
-| port              |   8188  | Port of the web GUI of ComfyUI |
+| ENV                                  | Default | Description                    |
+| :----------------                    |  ------:|:--------------------           |
+| UID                                  |   1000  | User Id                        |
+| GUID                                 |   1000  | Group Id of User Id            |
+| port                                 |   8188  | Port of the web GUI of ComfyUI |
+| EXTRA COMFYUI ARGUMENTS              |   none  | specify any argument with the format --option value     |
+
+
+
+## EXTRA COMFYUI ARGUMENTS
+
+
+
 
 ## BIND
 
