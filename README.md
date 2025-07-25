@@ -58,18 +58,90 @@ After the launch of the container you can access ComfyUI at the ip address of tr
 
 ## ENVIRONMENT VARIABLES
 
-| ENV                                  | Default | Description                    |
-| :----------------                    |  ------:|:--------------------           |
-| UID                                  |   1000  | User Id                        |
-| GUID                                 |   1000  | Group Id of User Id            |
-| port                                 |   8188  | Port of the web GUI of ComfyUI |
-| EXTRA COMFYUI ARGUMENTS              |   none  | specify any argument with the format --option value     |
+| ENV                                  | Default | Description                                                             |
+| :----------------                    |  ------:|:--------------------                                                    |
+| UID                                  |   1000  | User Id                                                                 |
+| GUID                                 |   1000  | Group Id of User Id                                                     |
+| port                                 |   8188  | Port of the web GUI of ComfyUI                                          |
+| COMFYARG                             |   none  | specify any argument with the format --option1 value --option2 value    |
 
 
 
 ## EXTRA COMFYUI ARGUMENTS
 
+-h, --help show this help message and exit
 
+--listen [IP] Specify the IP address to listen on (default: 127.0.0.1). If --listen is provided without an
+
+argument, it defaults to 0.0.0.0. (listens on all)
+
+--port PORT Set the listen port.
+
+--enable-cors-header [ORIGIN]
+
+Enable CORS (Cross-Origin Resource Sharing) with optional origin or allow all with default
+
+'*'.
+
+--extra-model-paths-config PATH [PATH . . . ] Load one or more extra_model_paths.yaml files.
+
+--output-directory OUTPUT_DIRECTORY Set the ComfyUI output directory.
+
+--auto-launch Automatically launch ComfyUI in the default browser.
+
+--cuda-device DEVICE_ID Set the id of the cuda device this instance will use.
+
+--cuda-malloc Enable cudaMallocAsync (enabled by default for torch 2.0 and up).
+
+--disable-cuda-malloc Disable cudaMallocAsync.
+
+--dont-upcast-attention Disable upcasting of attention. Can boost speed but increase the chances of black images.
+
+--force-fp32 Force fp32 (If this makes your GPU work better please report it).
+
+--force-fp16 Force fp16.
+
+--fp16-vae Run the VAE in fp16, might cause black images.
+
+--bf16-vae Run the VAE in bf16, might lower quality.
+
+--directml [DIRECTML_DEVICE]
+
+Use torch-directml.
+
+--preview-method [none,auto,latent2rgb,taesd] Default preview method for sampler nodes.
+
+--use-split-cross-attention Use the split cross attention optimization. Ignored when xformers is used.
+
+--use-quad-cross-attention Use the sub-quadratic cross attention optimization . Ignored when xformers is used.
+
+--use-pytorch-cross-attention Use the new pytorch 2.0 cross attention function.
+
+--disable-xformers Disable xformers.
+
+--gpu-only Store and run everything (text encoders/CLIP models, etc... on the GPU).
+
+--highvram By default models will be unloaded to CPU memory after being used. This option
+keeps them in GPU memory.
+
+--normalvram Used to force normal vram use if lowvram gets automatically enabled.
+
+--lowvram Split the unet in parts to use less vram.
+
+--novram When lowvram isn't enough.
+
+--cpu To use the CPU for everything (slow).
+
+--dont-print-server Don't print server output.
+
+--quick-test-for-ci Quick test for CI.
+
+--windows-standalone-build
+
+Windows standalone build: Enable convenient things that most people using the
+standalone windows build will probably enjoy (like auto opening the page on startup).
+
+--disable-metadata Disable saving prompt metadata in files.
 
 
 ## BIND
