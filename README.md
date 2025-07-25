@@ -51,8 +51,6 @@ services:
      - /hostpath/user:/app/ComfyUI/user
 
 ```
-The environment of python is stored in a volume.
-
 After the launch of the container you can access ComfyUI at the ip address of truenas: http://truenas:8188
 
 ## ENVIRONMENT VARIABLES
