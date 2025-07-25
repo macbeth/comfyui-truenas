@@ -56,9 +56,9 @@ services:
 ```
 After the launch of the container you can access ComfyUI at the ip address of truenas: http://truenas:8188
 
-## ENVIRONMENT VARIABLES
+## Build Arguments
 
-| ENV                                  | Default | Description                                                             |
+| ARG                                  | Default | Description                                                             |
 | :----------------                    |  ------:|:--------------------                                                    |
 | UID                                  |   1000  | User Id                                                                 |
 | GUID                                 |   1000  | Group Id of User Id                                                     |
