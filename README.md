@@ -75,7 +75,7 @@ After the launch of the container you can access ComfyUI at the ip address of tr
 
 argument, it defaults to 0.0.0.0. (listens on all)
 
---port PORT Set the listen port.
+--port PORT Set the listen port. (dont' use this, there is already a dedicated argument)
 
 --enable-cors-header [ORIGIN]
 
