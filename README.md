@@ -197,8 +197,11 @@ Where xx.xx is the cuda versione you want for your Truenas Installation (at the 
 You can run container with lower version than HOST.
 repository of the images is here : https://hub.docker.com/r/tommasopiantanida/comfyui-truenas
 
+## Changelog
+Addded support for custom ComfyUI Arguments
+
 ## Known Issues
-At the moment the configuration of the listening port isn't working.
+None
 
 ## References 
 
