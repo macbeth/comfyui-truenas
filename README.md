@@ -12,7 +12,7 @@ Minimal Docker image of ComfyUI for Truenas, based on nVidia official base cuda 
 
 ## GPU Support
 Only nVidia cards that support CUDA 12.4.
-If you need, it's probably possible realize an image for othe GPU aswell starting from base image of AMD instead of Nvidia.
+If you need, it's probably possible realize an image for other GPU aswell starting from base image of AMD instead of Nvidia.
 Drop me a message and I'll see what i can do.
 
 ## Install 
