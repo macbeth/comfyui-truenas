@@ -198,7 +198,7 @@ You can run container with lower version than HOST.
 repository of the images is here : https://hub.docker.com/r/tommasopiantanida/comfyui-truenas
 
 ## Changelog
-25 07 - Addded support for custom ComfyUI Arguments
+25 07 2025 - Added support for custom ComfyUI Arguments
 
 ## Known Issues
 None
