@@ -1,8 +1,8 @@
 # comfyui-truenas
 Minimal Docker image of ComfyUI for Truenas, based on nVidia official base cuda images with:
 
-Inline-style: 
-![alt text](https://raw.githubusercontent.com/macbeth/comfyui-truenas/refs/heads/main/readme-image.png "ComfyUI")
+
+![ComfyUI Interface](https://raw.githubusercontent.com/macbeth/comfyui-truenas/refs/heads/main/readme-image.png "ComfyUI")
 
 
 
