@@ -42,7 +42,7 @@ services:
       - UID=1000
       - GID=1000
       - PORT=8188
-    image: tommasopiantanida/comfyui-truenas:test
+    image: tommasopiantanida/comfyui-truenas:latest
     ports:
       - '8188:8188'
     privileged: True
