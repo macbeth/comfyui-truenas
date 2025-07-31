@@ -8,7 +8,7 @@ Minimal Docker image of ComfyUI for Truenas, based on nVidia official base cuda 
 ![ComfyUI Interface](https://raw.githubusercontent.com/macbeth/comfyui-truenas/refs/heads/main/readme-image.png "ComfyUI")
 
 
-## last update 25 07 2025
+## last update 31 07 2025
 
 ## GPU Support
 Only nVidia cards that support CUDA 12.4.
