@@ -199,6 +199,7 @@ repository of the images is here : https://hub.docker.com/r/tommasopiantanida/co
 
 ## Changelog
 31 07 2025 - Updated all the images on Docker Hub platform
+
 25 07 2025 - Added support for custom ComfyUI Arguments
 
 ## Known Issues
