@@ -198,7 +198,7 @@ You can run container with lower version than HOST.
 repository of the images is here : https://hub.docker.com/r/tommasopiantanida/comfyui-truenas
 
 ## Changelog
-03 09 2025 - Updated ComfyUI
+03 09 2025 - Updated ComfyUI - v0.3.57
 
 31 07 2025 - Updated all the images on Docker Hub platform
 
