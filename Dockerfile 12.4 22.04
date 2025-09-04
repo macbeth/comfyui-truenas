@@ -3,6 +3,7 @@ ARG UID=1000
 ARG GID=1000
 #webgui service port
 ARG PORT=8188
+ARG COMFYARG=""
 # Start your image with a node base image
 # FROM nvidia/cuda:12.1.1-base-ubuntu22.04
 # FROM nvidia/cuda:12.6.3-base-ubuntu24.04
@@ -10,6 +11,7 @@ FROM nvidia/cuda:12.4.0-base-ubuntu22.04
 
 ARG PORT
 ENV docker_PORT=$PORT
+ENV docker_COMFYARG=$COMFYARG
 
 ##### Base
 # Install system packages
@@ -145,4 +147,3 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 ARG PORT
 CMD python /app/ComfyUI/main.py --listen 0.0.0.0 --port ${docker_PORT} ${docker_COMFYARG}
-
