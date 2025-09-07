@@ -8,7 +8,7 @@ Minimal Docker image of ComfyUI for Truenas, based on nVidia official base cuda 
 ![ComfyUI Interface](https://raw.githubusercontent.com/macbeth/comfyui-truenas/refs/heads/main/readme-image.png "ComfyUI")
 
 
-## last update 31 07 2025
+## last update 07 09 2025
 
 ## GPU Support
 Only nVidia cards that support CUDA 12.4.
@@ -198,6 +198,8 @@ You can run container with lower version than HOST.
 repository of the images is here : https://hub.docker.com/r/tommasopiantanida/comfyui-truenas
 
 ## Changelog
+07 09 2025 - Forced pytorch to a version suitable for 10xx nvidia GPU
+
 03 09 2025 - Updated ComfyUI - v0.3.57
 
 31 07 2025 - Updated all the images on Docker Hub platform
