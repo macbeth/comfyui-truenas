@@ -114,7 +114,7 @@ WORKDIR /app
 
 # Clone the ComfyUI repository (replace URL with the official repo)
 ARG PORT
-RUN git clone https://github.com/comfyanonymous/ComfyUI.git
+RUN git clone https://github.com/comfyanonymous/ComfyUI.git --branch v0.3.57
 
 # Change directory to the ComfyUI folder
 ARG PORT
@@ -147,3 +147,4 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 ARG PORT
 CMD python /app/ComfyUI/main.py --listen 0.0.0.0 --port ${docker_PORT} ${docker_COMFYARG}
+
