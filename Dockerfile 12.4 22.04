@@ -127,7 +127,7 @@ RUN python3 -m venv .venv --prompt "ComfyUI"
 ENV PATH="/app/ComfyUI/.venv/bin:$PATH"
 
 # install torch
-# RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu121
+RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu121
 # install requirements
 
 # Install ComfyUI dependencies
@@ -147,4 +147,5 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 ARG PORT
 CMD python /app/ComfyUI/main.py --listen 0.0.0.0 --port ${docker_PORT} ${docker_COMFYARG}
+
 
