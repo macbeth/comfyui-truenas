@@ -127,11 +127,13 @@ RUN python3 -m venv .venv --prompt "ComfyUI"
 ENV PATH="/app/ComfyUI/.venv/bin:$PATH"
 
 # install torch
-RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu121
+# RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu121
 # install requirements
 
 # Install ComfyUI dependencies
 ARG PORT
+# install a version of pytorch suitable for 10xx nvidia family
+RUN pip install torch==2.7.1 torchvision==0.22.1 torchaudio==2.7.1 --index-url https://download.pytorch.org/whl/cu118
 RUN pip install  --no-cache-dir -r requirements.txt
 
 # (Optional) Clean up pip cache to reduce image size
@@ -147,5 +149,6 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 ARG PORT
 CMD python /app/ComfyUI/main.py --listen 0.0.0.0 --port ${docker_PORT} ${docker_COMFYARG}
+
 
 
