@@ -199,6 +199,8 @@ repository of the images is here : https://hub.docker.com/r/tommasopiantanida/co
 
 ## Changelog
 
+08 09 2025 - Installed a version of pytorch suitable to support 10xx nvidia family
+
 03 09 2025 - Updated ComfyUI - v0.3.57
 
 31 07 2025 - Updated all the images on Docker Hub platform
