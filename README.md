@@ -198,7 +198,6 @@ You can run container with lower version than HOST.
 repository of the images is here : https://hub.docker.com/r/tommasopiantanida/comfyui-truenas
 
 ## Changelog
-07 09 2025 - Forced pytorch to a version suitable for 10xx nvidia GPU
 
 03 09 2025 - Updated ComfyUI - v0.3.57
 
