@@ -211,7 +211,9 @@ repository of the images is here : https://hub.docker.com/r/tommasopiantanida/co
 None
 
 ## Troubleshooting
-If you delete and recreate the container you mai need to delete the custom node folders and reinstall them.
+If you delete and recreate the container you may need to delete the custom node folders and reinstall them.
+
+If you download an update you may need to recreate the container.
 
 ## References 
 
