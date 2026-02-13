@@ -15,7 +15,7 @@ Only nVidia cards that support CUDA 12.4.
 If you need, it's probably possible realize an image for other GPU aswell starting from base image of AMD instead of Nvidia.
 Drop me a message and I'll see what i can do.
 
-## Install 
+## Installation
 
 use the image
 
@@ -55,6 +55,8 @@ services:
 
 ```
 After the launch of the container you can access ComfyUI at the ip address of truenas: http://truenas:8188
+
+Depending on the speed of your system the installation may seems to hang the system giving error, but after the completion of the container creation the container will be accessibile.
 
 ## Build Arguments
 
