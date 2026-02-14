@@ -137,6 +137,7 @@ ARG PORT
 # install a version of pytorch suitable for 10xx nvidia family
 RUN pip install torch==2.7.1 torchvision==0.22.1 torchaudio==2.7.1 --index-url https://download.pytorch.org/whl/cu118
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r manager_requirements.txt
 
 # (Optional) Clean up pip cache to reduce image size
 RUN pip cache purge
@@ -150,9 +151,7 @@ EXPOSE $PORT
 ENTRYPOINT ["/entrypoint.sh"]
 
 ARG PORT
+# RUN python /app/tags/v0.13.0/main.py --enable-manager
 CMD python /app/tags/v0.13.0/main.py --listen 0.0.0.0 --port ${docker_PORT} ${docker_COMFYARG}
 
-# CMD ["python","/app/ComfyUI/main.py","--listen","0.0.0.0","--port", ${PORT}, ${docker_COMFYARG}]
-
-
-
+# CMD ["python","/app/ComfyUI/main.py","--listen","0.0.0.0","--port", ${PORT}, ${docker_COMFYARG}
