@@ -215,6 +215,8 @@ If you delete and recreate the container you may need to delete the custom node 
 
 If you download an update you may need to recreate the container.
 
+If you experience unclicable regions, open chrome in incognito, some ad block may interfere with Comfy-UI
+
 ## References 
 
 Based on the work of 
