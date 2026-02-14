@@ -4,12 +4,14 @@ ARG GID=1000
 #webgui service port
 ARG PORT=8188
 ARG COMFYARG=""
+
 # Start your image with a node base image
 # FROM nvidia/cuda:12.1.1-base-ubuntu22.04
 # FROM nvidia/cuda:12.6.3-base-ubuntu24.04
 FROM nvidia/cuda:12.4.0-base-ubuntu22.04
 
 ARG PORT
+ARG COMFYARG
 ENV docker_PORT=$PORT
 ENV docker_COMFYARG=$COMFYARG
 
@@ -114,17 +116,17 @@ WORKDIR /app
 
 # Clone the ComfyUI repository (replace URL with the official repo)
 ARG PORT
-RUN git clone https://github.com/comfyanonymous/ComfyUI.git --branch v0.3.57
+RUN git clone https://github.com/comfyanonymous/ComfyUI.git tags/v0.13.0
 
 # Change directory to the ComfyUI folder
 ARG PORT
-WORKDIR /app/ComfyUI
+WORKDIR /app/tags/v0.13.0
 
 # create python venv
 ARG PORT
 RUN python3 -m venv .venv --prompt "ComfyUI"
 # add it to path
-ENV PATH="/app/ComfyUI/.venv/bin:$PATH"
+ENV PATH="/app/tags/v0.13.0/.venv/bin:$PATH"
 
 # install torch
 # RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu121
@@ -134,7 +136,7 @@ ENV PATH="/app/ComfyUI/.venv/bin:$PATH"
 ARG PORT
 # install a version of pytorch suitable for 10xx nvidia family
 RUN pip install torch==2.7.1 torchvision==0.22.1 torchaudio==2.7.1 --index-url https://download.pytorch.org/whl/cu118
-RUN pip install  --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # (Optional) Clean up pip cache to reduce image size
 RUN pip cache purge
@@ -149,6 +151,7 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 ARG PORT
 CMD python /app/ComfyUI/main.py --listen 0.0.0.0 --port ${docker_PORT} ${docker_COMFYARG}
+# CMD ["python","/app/ComfyUI/main.py","--listen","0.0.0.0","--port", ${PORT}, ${docker_COMFYARG}]
 
 
 
