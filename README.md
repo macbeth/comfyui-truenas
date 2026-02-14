@@ -56,8 +56,6 @@ services:
 ```
 After the launch of the container you can access ComfyUI at the ip address of truenas: http://truenas:8188
 
-Depending on the speed of your system the installation may seems to hang the system giving error, but after the completion of the container creation the container will be accessibile.
-
 ## Build Arguments
 
 | ARG                                  | Default | Description                                                             |
