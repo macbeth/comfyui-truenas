@@ -6,16 +6,16 @@
 
 set -e
 
-CN_DIR=/app/ComfyUI/custom_nodes
+CN_DIR=/app/tags/v0.13.0/custom_nodes
 INIT_MARKER="$CN_DIR/.custom_nodes_initialized"
 
 declare -A REPOS=(
   ["ComfyUI-Manager"]="https://github.com/ltdrdata/ComfyUI-Manager.git"
-  ["ComfyUI_essentials"]="https://github.com/cubiq/ComfyUI_essentials.git"
-  ["ComfyUI-Crystools"]="https://github.com/crystian/ComfyUI-Crystools.git"
-  ["rgthree-comfy"]="https://github.com/rgthree/rgthree-comfy.git"
-  ["ComfyUI-KJNodes"]="https://github.com/kijai/ComfyUI-KJNodes.git"
-  ["ComfyUI_UltimateSDUpscale"]="https://github.com/ssitu/ComfyUI_UltimateSDUpscale.git"
+  #["ComfyUI_essentials"]="https://github.com/cubiq/ComfyUI_essentials.git"
+  #["ComfyUI-Crystools"]="https://github.com/crystian/ComfyUI-Crystools.git"
+  #["rgthree-comfy"]="https://github.com/rgthree/rgthree-comfy.git"
+  #["ComfyUI-KJNodes"]="https://github.com/kijai/ComfyUI-KJNodes.git"
+  #["ComfyUI_UltimateSDUpscale"]="https://github.com/ssitu/ComfyUI_UltimateSDUpscale.git"
 )
 
 if [ ! -f "$INIT_MARKER" ]; then
