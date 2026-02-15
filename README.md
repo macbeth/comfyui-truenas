@@ -207,8 +207,12 @@ repository of the images is here : https://hub.docker.com/r/tommasopiantanida/co
 
 ## Changelog
 
-14 02 2026 - Updated ComfyUI to the version 0.13. 
-Updated all images but the one tagged with cuda [12.4]
+15 02 2026 - Updated ComfyUI to the version 0.13. 
+
+Updated Comfy UI to the version 0.13 (last release). Added a tag specific to the version.
+
+Updated all images. The previous version is now tagged with :old ... if you experience issue revert to this one.
+
 Added a new tag to identify the Comfy UI Version with the format comfy.x.xx (ex: comfy.0.13)
 
 08 09 2025 - Installed a version of pytorch suitable to support 10xx nvidia family
