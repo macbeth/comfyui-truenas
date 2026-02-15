@@ -12,7 +12,7 @@ Minimal Docker image of ComfyUI for Truenas, based on nVidia official base cuda 
 
 Updated Comfy UI to version 0.13. 
 Updated all images.
-The previous version is now tagged with :old ... if you experience issue revert to this one.
+The previous version is now tagged with :old ... if you experience issues revert to this one.
 Added a new tag to identify the Comfy UI Version with the format comfy.x.xx.
 If you need to stick to a comfy version you can pull using this tag.
 
@@ -174,7 +174,7 @@ Latest is currently pointing at the image designed for:
 Truenas 25.04.2.6
 CUDA 12.4
 Ubuntu 22.04
-And can probably run on newer release of Truenas.
+And can probably run on newer release of Truenas and any release of Truenas with the same CUDA version or better.
 
 If you are not running the latest version of Truenas, run the command:
 ```
@@ -211,7 +211,7 @@ repository of the images is here : https://hub.docker.com/r/tommasopiantanida/co
 
 Updated Comfy UI to the version 0.13 (last release). Added a tag specific to the version.
 
-Updated all images. The previous version is now tagged with :old ... if you experience issue revert to this one.
+Updated all images. The previous version is now tagged with :old ... if you experience issues revert to this one.
 
 Added a new tag to identify the Comfy UI Version with the format comfy.x.xx (ex: comfy.0.13)
 
