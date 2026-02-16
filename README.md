@@ -224,7 +224,7 @@ Added a new tag to identify the Comfy UI Version with the format comfy.x.xx (ex:
 25 07 2025 - Added support for custom ComfyUI Arguments
 
 ## Known Issues
-None
+The extension with GPU / CPU / RAM usage is no longer working.
 
 ## Troubleshooting
 If you delete and recreate the container you may need to delete the custom node folders and reinstall them.
