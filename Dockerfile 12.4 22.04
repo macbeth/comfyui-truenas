@@ -116,17 +116,17 @@ WORKDIR /app
 
 # Clone the ComfyUI repository (replace URL with the official repo)
 ARG PORT
-RUN git clone https://github.com/comfyanonymous/ComfyUI.git tags/v0.13.0
+RUN git clone https://github.com/comfyanonymous/ComfyUI.git tags/v0.15.1
 
 # Change directory to the ComfyUI folder
 ARG PORT
-WORKDIR /app/tags/v0.13.0
+WORKDIR /app/tags/v0.15.1
 
 # create python venv
 ARG PORT
 RUN python3 -m venv .venv --prompt "ComfyUI"
 # add it to path
-ENV PATH="/app/tags/v0.13.0/.venv/bin:$PATH"
+ENV PATH="/app/tags/v0.15.1/.venv/bin:$PATH"
 
 # install torch
 # RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu121
@@ -151,7 +151,7 @@ EXPOSE $PORT
 ENTRYPOINT ["/entrypoint.sh"]
 
 ARG PORT
-# RUN python /app/tags/v0.13.0/main.py --enable-manager
-CMD python /app/tags/v0.13.0/main.py --listen 0.0.0.0 --port ${docker_PORT} ${docker_COMFYARG}
+# RUN python /app/tags/v0.15.1/main.py --enable-manager
+CMD python /app/tags/v0.15.1/main.py --listen 0.0.0.0 --port ${docker_PORT} ${docker_COMFYARG}
 
 # CMD ["python","/app/ComfyUI/main.py","--listen","0.0.0.0","--port", ${PORT}, ${docker_COMFYARG}
