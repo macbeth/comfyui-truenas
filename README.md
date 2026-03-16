@@ -8,9 +8,9 @@ Minimal Docker image of ComfyUI for Truenas, based on nVidia official base cuda 
 ![ComfyUI Interface](https://raw.githubusercontent.com/macbeth/comfyui-truenas/refs/heads/main/readme-image.png "ComfyUI")
 
 
-## last update 28 02 2026
+## last update 16 03 2026
 
-Uploaded a test version with Comfy UI to the version 0.15.1 
+Uploaded a test version with Comfy UI to the version 0.17.2
 
 :latest still point at 0.13
 
