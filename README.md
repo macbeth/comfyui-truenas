@@ -8,9 +8,11 @@ Minimal Docker image of ComfyUI for Truenas, based on nVidia official base cuda 
 ![ComfyUI Interface](https://raw.githubusercontent.com/macbeth/comfyui-truenas/refs/heads/main/readme-image.png "ComfyUI")
 
 
-## last update 16 03 2026
+## last update 17 03 2026
+Fixed the path of the docker images so it is not bound to ComfyUI version: you don't need to mapp app/tags/v0.17.2/models , just map app/ComfyUI/models folder etc.
 
 Uploaded a test version with Comfy UI to the version 0.17.2
+
 
 :latest still point at 0.13
 
@@ -204,6 +206,9 @@ You can run container with lower version than HOST.
 repository of the images is here : https://hub.docker.com/r/tommasopiantanida/comfyui-truenas
 
 ## Changelog
+
+16 03 2026
+Fixed the path of the docker images so it is not bound to ComfyUI version: you don't need to mapp app/tags/v0.17.2/models , just map app/ComfyUI/models folder etc.
 
 15 02 2026 - Updated ComfyUI to the version 0.13. 
 
