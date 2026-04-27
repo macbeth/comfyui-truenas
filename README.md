@@ -202,6 +202,9 @@ repository of the images is here : https://hub.docker.com/r/tommasopiantanida/co
 
 ## Changelog
 
+27 04 2026
+Updated ComfyUI to 0.19.3 
+
 16 03 2026
 Fixed the path of the docker images so it is not bound to ComfyUI version: you don't need to mapp app/tags/v0.17.2/models , just map app/ComfyUI/models folder etc.
 
