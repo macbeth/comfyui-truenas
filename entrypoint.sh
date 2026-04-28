@@ -6,7 +6,7 @@
 
 set -e
 
-CN_DIR=/app/tags/v0.19.3/custom_nodes
+CN_DIR=/app/tags/v0.20.1/custom_nodes
 INIT_MARKER="$CN_DIR/.custom_nodes_initialized"
 
 declare -A REPOS=(
