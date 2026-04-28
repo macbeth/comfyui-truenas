@@ -9,7 +9,9 @@ Minimal Docker image of ComfyUI for Truenas, based on nVidia official base cuda 
 
 
 ## last update 27 04 2026
-:latest point now to 19.03. 
+:latest point now to 0.19.03. 
+
+:test to 0.20.1.
 
 If you experience unclicable regions, open chrome in incognito, some ad blocker may interfere with Comfy-UI
 
