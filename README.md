@@ -22,6 +22,40 @@ Only nVidia cards that support CUDA 12.4.
 
 I don't have an AMD card to test it, but if you want you can try the experimental AMD image with tommasopiantanida/comfyui-truenas:rocm
 
+using 
+```
+name: comfyui
+services:
+  comfyui:
+    container_name: comfyui-truenas-rocm
+    image: tommasopiantanida/comfyui-truenas:rocm
+    ports:
+      - '8188:8188'
+    environment:
+      - UID=1000
+      - GID=1000
+      - PORT=8188
+      # RX 7900 XTX (gfx1100) is officially supported: do NOT set HSA_OVERRIDE_GFX_VERSION.
+      # Optional extra arguments for ComfyUI (24 GB VRAM, so no --lowvram):
+      # - COMFYARG=--use-pytorch-cross-attention
+    devices:
+      - /dev/kfd:/dev/kfd
+      - /dev/dri:/dev/dri
+    group_add:
+      - video
+      - render        # on TrueNAS prefer the numeric GIDs: getent group render video
+    security_opt:
+      - seccomp:unconfined
+    ipc: host
+    volumes:
+      - /hostpath/models:/app/ComfyUI/models
+      - /hostpath/custom_nodes:/app/ComfyUI/custom_nodes
+      - /hostpath/input:/app/ComfyUI/input
+      - /hostpath/output:/app/ComfyUI/output
+      - /hostpath/user:/app/ComfyUI/user
+
+```
+
 ## Installation
 
 use the image
