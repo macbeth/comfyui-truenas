@@ -240,6 +240,11 @@ repository of the images is here : https://hub.docker.com/r/tommasopiantanida/co
 
 ## Changelog
 
+25 10 2026
+:test point now to v0.42.1 
+
+Added an experimental build for AMD . To test it use :rocm
+
 18 05 2026
 :latest point now to 0.21.1
 
