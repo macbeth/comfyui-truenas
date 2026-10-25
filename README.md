@@ -17,8 +17,10 @@ If you experience unclicable regions, open chrome in incognito, some ad blocker 
 
 ## GPU Support
 Only nVidia cards that support CUDA 12.4.
-If you need, it's probably possible realize an image for other GPU aswell starting from base image of AMD instead of Nvidia.
-Drop me a message and I'll see what i can do.
+
+### Experimental Build for AMD cards
+
+I don't have an AMD card to test it, but if you want you can try the experimental AMD image with tommasopiantanida/comfyui-truenas:rocm
 
 ## Installation
 
