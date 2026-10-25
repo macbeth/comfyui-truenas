@@ -20,7 +20,7 @@ Only nVidia cards that support CUDA 12.4.
 
 ### Experimental Build for AMD cards
 
-I don't have an AMD card to test it, but if you want you can try the experimental AMD image with tommasopiantanida/comfyui-truenas:rocm
+I don't have an AMD card to test it, but if you want you can try the experimental AMD image with tommasopiantanida/comfyui-truenas:rocm (for rocm 6.2) or tommasopiantanida/comfyui-truenas:rocm7.2 (for rocm 7.2) 
 
 using 
 ```
